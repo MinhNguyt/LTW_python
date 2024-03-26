@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Book Search</title>
+{% endblock %}
+{% block nav1%}
+    <a class="navbar-brand" href="/"><h3 style="color:green">BOOKR</h3> Review</a>
+{% endblock %}
+{% block content %}
+    <h2>Search for Books</h2>
+    <form method="get">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    {% if search_text %}
+        <h3><em>Search Results for {{ search_text }}</em></h3>
+        <ul class="list-group">
+            {% if books %}
+                {% for book in books %}
+                    <li class="list-group-item">
+                        <a href="{% url 'book_lists' %}">
+                            <label style="color:#16a1b7">Title:</label>
+                            {{ book.title }}</a>
+                        <br>
+                        <label style="color:#16a1b7">Contributor:</label>
+                        {% for contributor in book.contributors.all %}
+                            {{ contributor.first_names }} {{ contributor.last_names }},
+                        {% endfor %}
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li class="list-group-item">No results found.</li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

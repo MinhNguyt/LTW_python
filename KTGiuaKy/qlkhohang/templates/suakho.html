@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% if instance %}
+            SUA THONG TIN KHO
+        {% else %}
+            THEM MOI KHO
+        {% endif %}</title>
+    <style>
+        label{
+            color: #2196F3;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value= "{% if instance %} Sửa kho {% else %} Thêm mới {% endif %}" class="btn btn-primary">
+    </form>
+</body>
+</html>

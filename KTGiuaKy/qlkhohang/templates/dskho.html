@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DANH SACH KHO</title>
+</head>
+<body>
+    <h3>Danh Sach Kho</h3>
+    <ul class="list-group">
+        {% for item in kho %}
+        <li class="list-group-item">
+            <span class="text-info" style="color: #2196F3;font-weight:bold">Ten: </span> <span>{{item.Ten}}</span>
+             <br>
+             <span class="text-info" style="color: #2196F3;font-weight:bold">Dia chi: </span>
+             <span>{{ item.DiaChi }}</span>
+             <br>
+             <span class="text-info" style="color: #2196F3;font-weight:bold">Ton kho: </span>
+             <span>{{ item.SoLuong }}</span><br>
+             <a class="btn btn-primary btn-sm active" role="button"
+                aria-pressed="true" href="{% url 'suakho' khoid=item.id%}">
+                Sửa</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
