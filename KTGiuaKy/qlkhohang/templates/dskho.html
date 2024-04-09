@@ -6,19 +6,29 @@
 </head>
 <body>
     <h3>Danh Sach Kho</h3>
-    <ul class="list-group">
+    <ul class="list-group" style="list-style-type: none">
         {% for item in kho %}
         <li class="list-group-item">
-            <span class="text-info" style="color: #2196F3;font-weight:bold">Ten: </span> <span>{{item.Ten}}</span>
+            <span class="text-info" style="color: #073b57;font-weight:bold">Ten: </span> <span>{{item.Ten}}</span>
              <br>
-             <span class="text-info" style="color: #2196F3;font-weight:bold">Dia chi: </span>
+             <span class="text-info" style="color: #073b57;font-weight:bold">Dia chi: </span>
              <span>{{ item.DiaChi }}</span>
              <br>
-             <span class="text-info" style="color: #2196F3;font-weight:bold">Ton kho: </span>
-             <span>{{ item.SoLuong }}</span><br>
-             <a class="btn btn-primary btn-sm active" role="button"
-                aria-pressed="true" href="{% url 'suakho' khoid=item.id%}">
+             <span class="text-info" style="color: #073b57;font-weight:bold">Ton kho: </span>
+             <span>
+                 {% for khomathang in item.khomathang_set.all %}
+                    {{ khomathang.MatHang.Ten }} ({{ khomathang.SoLuong }})
+                    {% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Không có mặt hàng
+                {% endfor %}
+             </span><br>
+            <button style="background-color: #073b57; padding: 5px 15px; border-radius: 7px; border-color: #fff; margin: 5px 0">
+                <a class="btn btn-primary btn-sm active" role="button"
+                aria-pressed="true" href="{% url 'suakho' khoid=item.id%}" style="text-decoration:none; font-weight: bold; color: #fff">
                 Sửa</a>
+            </button>
+
         </li>
         {% endfor %}
     </ul>

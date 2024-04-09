@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404, redirect
-from .models import KHO
+from .models import KHO, KHOMATHANG
 from .form import KhoForm
 from django.contrib import messages
 from django.utils import timezone
