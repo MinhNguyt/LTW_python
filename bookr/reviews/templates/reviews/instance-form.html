@@ -1,39 +1,33 @@
+{% extends 'base.html' %}
 
+{% block title %}
+    <title>
+        {% if instance %}
+            Editing Publisher {{ instance.name }}
+        {% else %}
+            New Publisher
+        {% endif %}
+    </title>
+{% endblock %}
+{% block nav1%}
+    <a class="navbar-brand" href="/"><h3 style="color:green">BOOKR</h3> Review</a>
+{% endblock %}
 
-
-
-
-<!--BTCHUONG4-->
-<!--{% extends 'base.html' %}-->
-
-<!--{% block title %}-->
-<!--    <title>-->
-<!--        {% if instance %}-->
-<!--            Editing Publisher {{ instance.name }}-->
-<!--        {% else %}-->
-<!--            New Publisher-->
-<!--        {% endif %}-->
-<!--    </title>-->
-<!--{% endblock %}-->
-<!--{% block nav1%}-->
-<!--    <a class="navbar-brand" href="/"><h3 style="color:green">BOOKR</h3> Review</a>-->
-<!--{% endblock %}-->
-
-<!--{% block content %}-->
-<!--&lt;!&ndash;    <h2>{% if instance %}Editing Publisher <em>{{ instance.name }}</em>{% else %}New Publisher{% endif %}</h2>&ndash;&gt;-->
-<!--&lt;!&ndash;    <form method="post">&ndash;&gt;-->
-<!--&lt;!&ndash;        {% csrf_token %}&ndash;&gt;-->
-<!--&lt;!&ndash;        {{ form.as_p }}&ndash;&gt;-->
-<!--&lt;!&ndash;        <button type="submit" class="btn btn-primary">{% if instance %}Save{% else %}Create{% endif %}</button>&ndash;&gt;-->
-<!--&lt;!&ndash;    </form>&ndash;&gt;-->
-<!--    <h2>New Review</h2>-->
-<!--    {% if related_model_type and related_instance %}-->
-<!--        <p>For <em>{{ related_model_type }} {{ related_instance }}</em></p>-->
-<!--    {% endif %}-->
-<!--    <form method="POST">-->
+{% block content %}
+<!--    <h2>{% if instance %}Editing Publisher <em>{{ instance.name }}</em>{% else %}New Publisher{% endif %}</h2>-->
+<!--    <form method="post">-->
 <!--        {% csrf_token %}-->
 <!--        {{ form.as_p }}-->
-<!--        <input type="submit" value= "{% if instance %} Save {% else %} Create {% endif %}" class="btn btn-primary">-->
+<!--        <button type="submit" class="btn btn-primary">{% if instance %}Save{% else %}Create{% endif %}</button>-->
 <!--    </form>-->
+    <h2>New Review</h2>
+    {% if related_model_type and related_instance %}
+        <p>For <em>{{ related_model_type }} {{ related_instance }}</em></p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value= "{% if instance %} Save {% else %} Create {% endif %}" class="btn btn-primary">
+    </form>
 
-<!--{% endblock %}-->
+{% endblock %}

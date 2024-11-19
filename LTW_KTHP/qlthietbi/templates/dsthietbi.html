@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DANH SÁCH THIẾT BỊ</title>
+</head>
+<body>
+    <h1 style="color:#a1420e; margin-left: 650px;">Danh Sách Thiết Bị</h1>
+    <ul class="list-group" style="list-style-type: none; ">
+        {% for item in thietbi %}
+        <li style="border: 1px solid #073b57; margin:30px;padding:10px;">
+            <span style="font-weight:bold">Ten: </span> <span>{{item.Ten}}</span>
+             <br>
+             <span style="font-weight:bold">Don Vi Su Dung: </span>
+             <span>{{ item.DonViSuDung}}</span>
+             <br>
+             <span style="font-weight:bold">Loai Thiet Bi: </span>
+             <span>{{ item.LoaiThietBi }}</span><br>
+             <span style="font-weight:bold">Ngay Ban Giao: </span>
+             <span>{{ item.NgayBanGiao }}</span><br>
+             <span style="font-weight:bold">Tinh Trang: </span>
+             <span>{{ item.TinhTrang }}</span><br>
+             <button style="background-color: #f56819; padding: 5px 15px; border-radius: 7px; border-color: #fff; margin: 5px 0">
+                <a role="button"
+                aria-pressed="true" href="{% url 'suathietbi' id=item.id%}" style="text-decoration:none; font-weight: bold; color: #fff">
+                Sửa thiết bị</a>
+             </button>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

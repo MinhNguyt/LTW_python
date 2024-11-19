@@ -25,4 +25,5 @@ urlpatterns = [
     path('suakho/<int:khoid>',qlkhohang.views.suakho,name='suakho'),
     path('suakho/moi/',qlkhohang.views.suakho,name='themkho'),
 
+
 ]

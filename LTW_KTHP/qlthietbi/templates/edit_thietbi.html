@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if instance %}
+            SỬA THÔNG TIN THIẾT BỊ
+        {% else %}
+            THÊM MỚI THIẾT BỊ
+        {% endif %}
+    </title>
+    <style>
+        input[type="submit"]{
+        background-color: #f56819;
+        padding: 5px 15px;
+        border-radius: 7px;
+        border-color: #fff;
+        font-weight: bold;
+        color:#fff;
+        }
+        label{
+        font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value= "{% if instance %} Sửa {% else %} Thêm mới {% endif %}" class="btn btn-primary">
+    </form>
+</body>
+</html>

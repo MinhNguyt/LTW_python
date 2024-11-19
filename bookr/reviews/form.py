@@ -13,6 +13,8 @@ class PublisherForm(forms.ModelForm):
  class Meta:
      model = Publisher
      fields = "__all__"
+
+
 from django import forms
 from .models import Review
 

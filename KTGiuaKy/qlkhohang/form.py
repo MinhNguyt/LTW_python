@@ -5,4 +5,3 @@ class KhoForm(forms.ModelForm):
     class Meta:
         model = KHO
         fields = "__all__"
-

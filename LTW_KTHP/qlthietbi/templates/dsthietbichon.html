@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DANH SÁCH THIẾT BỊ CHỌN</title>
+</head>
+<body>
+    <h3>Danh sách thiết bị</h3>
+    <p>
+      {% for id, Ten in request.session.chonthietbi %}
+        <span style=";font-weight:bold">ID:</span>
+        <span>{{id}} </span><br>
+        <span style=";font-weight:bold">Ten:</span>
+        <span>{{Ten}} </span><br><br>
+      {% empty %}
+        Chưa chọn thiết bị nào.
+      {% endfor %}
+    </p>
+  </div>
+</body>
+</html>
